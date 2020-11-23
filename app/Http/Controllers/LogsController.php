@@ -10,6 +10,6 @@ class LogsController extends Controller
     {
     	$logs = Log::orderBy('id', 'desc')->get();
 
-    	return view('Log.logs',['logs'=>$logs]);	
+    	return view('log.logs',['logs'=>$logs]);	
     }
 }
