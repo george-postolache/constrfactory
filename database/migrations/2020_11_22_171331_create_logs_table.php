@@ -15,9 +15,13 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('model');
-            $table->string('id_model');
             $table->string('action');
+            $table->timestamps();
+        });
+        Schema::create('loggables', function (Blueprint $table) {
+            $table->bigInteger('logs_id');
+            $table->bigInteger('loggable_id');
+            $table->string('loggable_type');
             $table->timestamps();
         });
     }

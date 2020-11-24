@@ -25,16 +25,7 @@
             @if ($errors->has('name'))
                 <p class="help is-danger" >{{$errors->first('name')}}</p>
             @endif
-            <br>
-            <label for="id" id="cid">Contract's id </label>
-            <select name="contracts_id" id="id">
-                <option ></option>;
-                @foreach ($contracts as $contract)
-                    <option value="{{$contract->id}}">Id:{{$contract->id}} - Produs:{{$contract->produs}} - Furnizor:{{$contract->providers_id}}</option>;
-                    
-                    
-                @endforeach
-            </select>
+            
             
             <br>
       
@@ -46,7 +37,7 @@
             <table class="table table-striped">
             	<tr>
             		<th>Name</th>
-            		<th>Id Contract</th>
+            		
             		<th>Action</th>
             	</tr>
                 @foreach ($products as $product)
@@ -55,9 +46,7 @@
                             {{ $product->name }}
                                               
                     	</td>
-                    	<td>
-                            {{$product->contracts_id}}
-                    	</td>
+                    	
                         <td class="text-right">
                             <div id='button-panel'>
                             <form method="GET" action="/products/{{$product->id}}/edit">

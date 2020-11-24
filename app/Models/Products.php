@@ -11,4 +11,14 @@ class Products extends Model
     use HasFactory;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    
+
+    public function contracts()
+    {
+    	return $this->belongsToMany('App\Models\Contracts');
+    }
+    public function logs()
+    {
+        return $this->morphToMany('App\Models\Logs', 'loggable');
+    }
 }

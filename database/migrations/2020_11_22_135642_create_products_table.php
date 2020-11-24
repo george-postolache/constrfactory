@@ -14,12 +14,21 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->engine = 'InnoDB';
             $table->string('name');
-            $table->unsignedBigInteger('contracts_id')->nullable();
-            $table->foreign('contracts_id')->references('id')->on('contracts');
             $table->timestamps();
+        });
+        Schema::create('contracts_products', function (Blueprint $table) {
+            $table->id();
+            $table->engine = 'InnoDB';
+            $table->unsignedBigInteger('products_id');
+            $table->unsignedBigInteger('contracts_id');
+            $table->timestamps();
+
+            $table->unique(['products_id','contracts_id']);
+            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('contracts_id')->references('id')->on('contracts')->onDelete('cascade');
         });
     }
 

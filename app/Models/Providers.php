@@ -16,4 +16,8 @@ class Providers extends Model
     {
     	return $this->hasMany('App\Models\Contracts');
     }
+    public function logs()
+    {
+        return $this->morphToMany('App\Models\Logs', 'loggable');
+    }
 }

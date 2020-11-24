@@ -27,6 +27,9 @@
                       
                 @endforeach
             </select>
+            @if ($errors->has('providers_id'))
+                <p class="help is-danger" >{{$errors->first('providers_id')}}</p>
+            @endif
             <br>
             <label for="pro">Product's name </label>
             <input type="text" id="pro" name="produs" value="{{old('produs')}}">

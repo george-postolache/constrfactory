@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Providers;
-use App\Models\Log;
+use App\Models\Logs;
 
 class ProvidersController extends Controller
 {
@@ -31,12 +31,7 @@ class ProvidersController extends Controller
         $provider->telefon = request('telefon');
         $provider->adresa= request('adresa');
         $provider->save();
-        $last = Providers::orderBy('id', 'desc')->first();
-        $logs = new Log();
-        $logs->model = 'Providers';
-        $logs->id_model = $last['id'];
-        $logs->action = 'Create';
-        $logs->save();
+        $provider->logs()->attach(1);
         return redirect('providers'); 
 
     }
@@ -46,11 +41,7 @@ class ProvidersController extends Controller
         $provider = Providers::find($id);
         $provider->delete();
         $deleted = $provider;
-        $logs = new Log();
-        $logs->model = 'Providers';
-        $logs->id_model = $deleted['id'];
-        $logs->action = 'Destroy';
-        $logs->save();
+        $provider->logs()->attach(2);
         return redirect('/providers');
     }
 
@@ -64,16 +55,12 @@ class ProvidersController extends Controller
             
             ]);
     	$provider=Providers::find(request('id'));
-    	$updated = $provider;
+    	
     	$provider->denumire = request('denumire');
         $provider->telefon = request('telefon');
         $provider->adresa = request('adresa');
         $provider->save();
-        $logs = new Log();
-        $logs->model = 'Providers';
-        $logs->id_model = $updated['id'];
-        $logs->action = 'Update';
-        $logs->save();
+        $provider->logs()->attach(3);
         return redirect('/providers'); 
 
     }

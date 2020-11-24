@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Models\Products;
 Route::get('/', function () {
+
+	
     return view('home');
 });
 Route::get('/products', 'App\Http\Controllers\ProductsController@index');
@@ -34,4 +36,4 @@ Route::get('/contracts/{id}/delete','App\Http\Controllers\ContractsController@de
 Route::get('/contracts/{id}/edit','App\Http\Controllers\ContractsController@edit');
 Route::put('/contracts/updated','App\Http\Controllers\ContractsController@update');
 
-Route::get('/logs', 'App\Http\Controllers\LogsController@index');
+Route::get('/logs', 'App\Http\Controllers\LoggableController@index');

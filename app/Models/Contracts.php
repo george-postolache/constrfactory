@@ -17,4 +17,12 @@ class Contracts extends Model
     	return $this->belongsTo('App\Models\Providers');
     }
 
+    public function products()
+    {
+    	return $this->belongsToMany('App\Models\Products');
+    }
+    public function logs()
+    {
+        return $this->morphToMany('App\Models\Logs', 'loggable');
+    }
 }

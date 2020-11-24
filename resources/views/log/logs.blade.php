@@ -14,9 +14,9 @@
         <div class="card-body" background>
             <table class="table table-striped">
             	<tr>
-            		<th>Model</th>
-            		<th>Id_Model</th>
-                    <th>Action</th>
+            		<th>Action Id</th>
+            		<th>Model Id</th>
+                    <th>Model</th>
             		
             	</tr>
 
@@ -24,14 +24,14 @@
                 
                     <tr>
                     	<td>
-                            {{ $log->model }}
+                            {{ $log->logs_id }}
                                               
                     	</td>
                     	<td>
-                            {{$log->id_model}}
+                            {{$log->loggable_id}}
                     	</td>
                         <td>
-                            {{$log->action}}
+                            {{$log->loggable_type}}
                         </td>
                         
                     </tr>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Providers;
 use App\Models\Contracts;
-use App\Models\Log;
+use App\Models\Logs;
 class ContractsController extends Controller
 {
     public function index()
@@ -36,12 +36,7 @@ class ContractsController extends Controller
         $contract->cantitate = request('cantitate');
         $contract->valoare = request('valoare');
         $contract->save();
-        $last = Contracts::orderBy('id', 'desc')->first();
-        $logs = new Log();
-        $logs->model = 'Contracts';
-        $logs->id_model = $last['id'];
-        $logs->action = 'Create';
-        $logs->save();
+        $contract->logs()->attach(1);
         return redirect('contracts'); 
 
     }
@@ -50,12 +45,7 @@ class ContractsController extends Controller
         
         $contract=Contracts::find($id);
         $contract->delete();
-        $deleted = $contract;
-        $logs = new Log();
-        $logs->model = 'Contracts';
-        $logs->id_model = $deleted['id'];
-        $logs->action = 'Destroy';
-        $logs->save();
+        $contract->logs()->attach(2);
         return redirect('/contracts');
     }
 
@@ -70,18 +60,14 @@ class ContractsController extends Controller
             
             ]);
     	$contract=Contracts::find(request('id'));
-        $updated = $contract;
+       
     	$contract->providers_id = request('providers_id');
         $contract->produs = request('produs');
         $contract->cantitate = request('cantitate');
         $contract->valoare = request('valoare');
         $contract->save();
+        $contract->logs()->attach(3);
         
-        $logs = new Log();
-        $logs->model = 'Contracts';
-        $logs->id_model = $updated['id'];
-        $logs->action = 'Update';
-        $logs->save();
         return redirect('/contracts'); 
 
     }
