@@ -14,10 +14,10 @@
                 <p class="help is-danger" >{{$errors->first('name')}}</p>
             @endif
 	  		<label for="id" id="cid">Contract's id: </label>
-            <select name="id_contract" id="id">
-                <option value="{{$product->id_contract}}">{{$product->id_contract}}</option>;
+            <select name="contracts_id" id="id">
+                <option value="{{$product->contracts_id}}">{{$product->contracts_id}}</option>;
                 @foreach ($contracts as $contract)
-                    <option value="{{$contract->id}}">Id:{{$contract->id}} - Produs:{{$contract->produs}} - Furnizor:{{$contract->furnizor_id}}</option>;
+                    <option value="{{$contract->id}}">Id:{{$contract->id}} - Produs:{{$contract->produs}} - Furnizor:{{$contract->providers_id}}</option>;
                     
                     
                 @endforeach

@@ -45,7 +45,7 @@ class ProvidersController extends Controller
         
         $provider = Providers::find($id);
         $provider->delete();
-        $deleted = $providers;
+        $deleted = $provider;
         $logs = new Log();
         $logs->model = 'Providers';
         $logs->id_model = $deleted['id'];

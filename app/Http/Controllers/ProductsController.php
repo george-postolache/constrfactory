@@ -30,7 +30,7 @@ class ProductsController extends Controller
 
         $product = new Products();
         $product->name = request('name');
-        $product->id_contract = request('id_contract');
+        $product->contracts_id = request('contracts_id');
         $product->save();
         $last = Products::orderBy('id', 'desc')->first();
         $logs = new Log();
@@ -66,7 +66,7 @@ class ProductsController extends Controller
     	$product=Products::find(request('id'));
         $updated = $product;
     	$product->name = request('name');
-        $product->id_contract = request('id_contract');
+        $product->contracts_id = request('contracts_id');
         $product->save();
         
         $logs = new Log();

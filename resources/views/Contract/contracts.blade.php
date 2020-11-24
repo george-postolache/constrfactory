@@ -21,7 +21,7 @@
         <form method="POST" action="/contracts">
             @csrf
             <label for="id" id="cid">Provider id </label>
-            <select name="furnizor_id" id="id">
+            <select name="providers_id" id="id">
                 @foreach ($providers as $provider)
                     <option value="{{$provider->id}}">{{$provider->id}}</option>;
                       
@@ -63,7 +63,7 @@
                 @foreach ($contracts as $contract)
                     <tr>
                     	<td>
-                            {{ $contract->furnizor_id }}
+                            {{ $contract->providers_id }}
                                               
                     	</td>
                     	<td>

@@ -27,10 +27,10 @@
             @endif
             <br>
             <label for="id" id="cid">Contract's id </label>
-            <select name="id_contract" id="id">
+            <select name="contracts_id" id="id">
                 <option ></option>;
                 @foreach ($contracts as $contract)
-                    <option value="{{$contract->id}}">Id:{{$contract->id}} - Produs:{{$contract->produs}} - Furnizor:{{$contract->furnizor_id}}</option>;
+                    <option value="{{$contract->id}}">Id:{{$contract->id}} - Produs:{{$contract->produs}} - Furnizor:{{$contract->providers_id}}</option>;
                     
                     
                 @endforeach
@@ -56,7 +56,7 @@
                                               
                     	</td>
                     	<td>
-                            {{$product->id_contract}}
+                            {{$product->contracts_id}}
                     	</td>
                         <td class="text-right">
                             <div id='button-panel'>

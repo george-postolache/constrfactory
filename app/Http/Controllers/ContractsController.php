@@ -22,7 +22,7 @@ class ContractsController extends Controller
     {
     	request()->validate([
             
-                'furnizor_id'=>'required',
+                'providers_id'=>'required',
                 'produs'=>'required',
                 'cantitate'=>'required',
                 'valoare'=>'required'
@@ -31,7 +31,7 @@ class ContractsController extends Controller
             ]);
 
         $contract = new Contracts();
-        $contract->furnizor_id = request('furnizor_id');
+        $contract->providers_id = request('providers_id');
         $contract->produs = request('produs');
         $contract->cantitate = request('cantitate');
         $contract->valoare = request('valoare');
@@ -63,7 +63,7 @@ class ContractsController extends Controller
     {
     	request()->validate([
             
-                'furnizor_id'=>'required',
+                'providers_id'=>'required',
                 'produs'=>'required',
                 'cantitate'=>'required',
                 'valoare'=>'required'
@@ -71,7 +71,7 @@ class ContractsController extends Controller
             ]);
     	$contract=Contracts::find(request('id'));
         $updated = $contract;
-    	$contract->furnizor_id = request('furnizor_id');
+    	$contract->providers_id = request('providers_id');
         $contract->produs = request('produs');
         $contract->cantitate = request('cantitate');
         $contract->valoare = request('valoare');

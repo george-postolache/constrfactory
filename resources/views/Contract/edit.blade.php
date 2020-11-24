@@ -9,8 +9,8 @@
             @method('PUT')
             <input type="hidden" name="id" value="{{$contract->id}}" >
             <label for="id" id="cid">Provider id </label>
-            <select name="furnizor_id" id="id">
-                <option value="{{$contract->furnizor_id}}">{{$contract->furnizor_id}}</option>
+            <select name="providers_id" id="id">
+                <option value="{{$contract->providers_id}}">{{$contract->providers_id}}</option>
                 @foreach ($providers as $provider)
                     <option value="{{$provider->id}}">{{$provider->id}}</option>
                       
