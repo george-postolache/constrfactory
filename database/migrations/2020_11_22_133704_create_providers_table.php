@@ -15,7 +15,7 @@ class CreateProvidersTable extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('denumire');
             $table->string('telefon');
             $table->string('adresa');

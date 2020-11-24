@@ -12,4 +12,9 @@ class Contracts extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
+    public function providers()
+    {
+    	return $this->belongsTo('App\Models\Providers');
+    }
+
 }

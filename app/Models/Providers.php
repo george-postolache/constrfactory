@@ -11,4 +11,9 @@ class Providers extends Model
     use HasFactory;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function contracts()
+    {
+    	return $this->hasMany('App\Models\Contracts');
+    }
 }

@@ -15,9 +15,9 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('furnizor_id')->unsigned();
-            $table->foreign('furnizor_id')->references('id')->on('providers');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('providers_id');
+            $table->foreign('providers_id')->references('id')->on('providers')->onDelete('cascade');
             $table->string('produs');
             $table->integer('cantitate');
             $table->double('valoare');

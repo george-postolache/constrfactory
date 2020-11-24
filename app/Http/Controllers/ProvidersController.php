@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Providers;
+use App\Models\Log;
 
 class ProvidersController extends Controller
 {

@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->engine = 'InnoDB';
             $table->string('name');
-            $table->integer('id_contract')->unsigned()->nullable();
-            $table->foreign('id_contract')->references('id')->on('contracts');
+            $table->unsignedBigInteger('contracts_id')->nullable();
+            $table->foreign('contracts_id')->references('id')->on('contracts');
             $table->timestamps();
         });
     }
