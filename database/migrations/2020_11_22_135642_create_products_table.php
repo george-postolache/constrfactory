@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->engine = 'InnoDB';
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
         Schema::create('contracts_products', function (Blueprint $table) {

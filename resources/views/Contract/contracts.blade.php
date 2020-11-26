@@ -103,4 +103,31 @@
                 
         </div>
     </div>
+    <h4 id="lView">Many to many relationship table</h4>
+    <div class="card-body" background>
+            <table class="table table-striped">
+                <tr>
+                    <th>Products_id</th>
+                    <th>Contracts_id</th>
+                    
+                
+                </tr>
+                @foreach ($contracts_products as $contract_product)
+                    <tr>
+                        <td>
+                            {{ $contract_product->products_id }}
+                                              
+                        </td>
+                        <td>
+                            {{$contract_product->contracts_id}}
+                        </td>
+                        
+                        
+                    </tr>
+                        
+                @endforeach    
+            </table>
+
+                
+        </div>
 @endsection
